@@ -67,6 +67,16 @@ provider config is set in session:
 provider "azurerm" {
 }
 
+#remote state data
+data "terraform_remote_state" "tf-state" {
+  backend = "azure"
+  config {
+    storage_account_name = "sastate${format("%.8s", lower(sha1("${var.resource_group_name}")))}"
+    container_name       = "tf-state-main"
+    key                  = "tf-state-main.tfstate"
+  }
+}
+
 module "resource" {
   source = "./resource"
 

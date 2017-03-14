@@ -20,12 +20,12 @@ resource "azurerm_storage_container" "vhds" {
 resource "azurerm_storage_account" "storacct_state" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
-  name = "sadisk${format("%.8s", lower(sha1("${var.resource_group_name}")))}"
+  name = "sastate${format("%.8s", lower(sha1("${var.resource_group_name}")))}"
   account_type = "${var.storacct_disk_type}"
 }
 
 resource "azurerm_storage_container" "state" {
-  name = "state"
+  name = "tf-state-main"
   resource_group_name = "${var.resource_group_name}"
   storage_account_name = "${azurerm_storage_account.storacct_state.name}"
   container_access_type = "private"
