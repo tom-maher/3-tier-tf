@@ -17,7 +17,7 @@ resource "azurerm_storage_container" "vhds" {
   container_access_type = "private"
 }
 
-/*resource "azurerm_storage_account" "storacct_state" {
+resource "azurerm_storage_account" "storacct_state" {
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   name = "sadisk${format("%.8s", lower(sha1("${var.resource_group_name}")))}"
@@ -29,7 +29,7 @@ resource "azurerm_storage_container" "state" {
   resource_group_name = "${var.resource_group_name}"
   storage_account_name = "${azurerm_storage_account.storacct_state.name}"
   container_access_type = "private"
-}*/
+}
 
 resource "azurerm_storage_account" "storacct_diag" {
   location = "${var.location}"
