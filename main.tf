@@ -12,6 +12,7 @@ Pete's Terraform Tips
 
 Deploy a Best Practices Infrastructure in AWS (git)
       https://github.com/hashicorp/best-practices/tree/master/terraform/providers/aws
+
 */
 
 
